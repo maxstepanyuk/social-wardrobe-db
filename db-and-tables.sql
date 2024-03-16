@@ -3,20 +3,16 @@
 -- -- connect / use this DB
 -- \c postgres; 
 
--- DROP DATABASE IF EXISTS wardrobe_for_pis03;
-CREATE DATABASE wardrobe_for_pis03_c;
-
+-- DROP DATABASE IF EXISTS wardrobe;
+CREATE DATABASE wardrobe;
 
 -- list all DBs
 SELECT datname FROM pg_database; 
 
 -- -- connect / use this DB
-\c wardrobe_for_pis03; 
-
-
+\c wardrobe; 
 
 -- user profile gender
-
 CREATE TABLE IF NOT EXISTS "user" (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(255) UNIQUE NOT NULL,
@@ -123,7 +119,6 @@ CREATE TABLE IF NOT EXISTS comments (
 
 
 -- logs
-
 CREATE TABLE action_log (
     log_id SERIAL PRIMARY KEY,
     table_name VARCHAR(255) NOT NULL,

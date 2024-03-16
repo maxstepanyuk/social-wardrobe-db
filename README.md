@@ -1,30 +1,12 @@
-2024-03-03
+# SocialWardrobe
 
-- - -
+Created by Maksym Stepaniuk ([maxstepanyuk](https://github.com/maxstepanyuk) on github). The original repository: [social-wardrobe-db](https://github.com/maxstepanyuk/social-wardrobe-db)
 
-ПІС 
+Before using this in your own works, please ask me first.
 
-ЛАБОРАТОРНЕ ЗАНЯТТЯ №3
-Тема: Використання запитів
+Contact me or see what I'm up to - [linktree](https://linktr.ee/purpexe)
 
-Завдання
-
-1. + Заповнити даними створені у попередній роботі таблиці (близько 15 записів у кожній таблиці).
-2. + Написати запити, до створеної бази даних, серед яких повинні бути присутні:
-    1. простий запит на вибірку з однієї таблиці;
-    2. простий запит на вибірку з декількох таблиць;
-    3. запит з групуванням;
-    4. запит з обчислювальним полем;
-    5. запит з використанням агрегатних функцій;
-    6. запит з сортуванням;
-    7. запит з використанням умови;
-    8. запит з використанням підзапитів.
-3. + Створити 3 тригера (наприклад, для запису в журнал подій операцій з базою даних).
-4. +* Продемонструвати вміння переносу даних в іншу систему керування базами даних (cтворити БД в СУБД, відмінній від тієї, що в попередній роботі, для прикладу, PostgreSQL).
-- - -
-
-
-# postgresql in Docker
+# PostgreSQL in Docker
 
 ```bash
 # list
@@ -47,7 +29,7 @@ sudo docker exec -it postgresql bash
 psql -U postgres
 
 
-# run commands in mysql
+# run commands in postgresql
 
 # exit postgresql
 \q

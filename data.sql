@@ -340,7 +340,7 @@ INSERT INTO comments (outfit_id, user_id, comment) VALUES
 (1, 3, 'Nice outfit!'),
 (2, 4, 'Love it!'),
 (3, 5, 'Great style!'),
-(4, 1, 'I woulnd thougt of this combo!'),
+(4, 1, 'I woulnd thought of this combo!'),
 (5, 2, 'Ok');
 
 INSERT INTO comments (outfit_id, user_id, comment) VALUES
@@ -370,7 +370,7 @@ INSERT INTO comments (outfit_id, user_id, comment) VALUES
 (1, 3, 'Nice outfit!'),
 (2, 4, 'Love it!'),
 (1, 5, 'Great style!'),
-(2, 1, 'I woulnd thougt of this combo!'),
+(2, 1, 'I woulnd thought of this combo!'),
 (1, 2, 'Ok');
 
 select * from "comments";

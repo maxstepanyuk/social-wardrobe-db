@@ -1,5 +1,8 @@
 -- PostgreSQL
 
+-- -- connect / use this DB
+-- \c wardrobe; 
+
 -- data
 
 INSERT INTO "user" (username, email, password) VALUES

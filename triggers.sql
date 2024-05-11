@@ -1,5 +1,8 @@
 --postgresql
 
+-- -- connect / use this DB
+-- \c wardrobe; 
+
 -- Створити 3 тригера (наприклад, для запису в журнал подій операцій з базою даних).
 
 -- on delete - user table

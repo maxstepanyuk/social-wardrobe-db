@@ -1,5 +1,7 @@
 --postgresql
 
+-- -- connect / use this DB
+-- \c wardrobe; 
 
 -- 1. + простий запит на вибірку з однієї таблиці;
 SELECT

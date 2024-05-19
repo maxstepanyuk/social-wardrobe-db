@@ -58,8 +58,8 @@ CREATE TABLE IF NOT EXISTS public."garment_type" (
 
 CREATE TABLE IF NOT EXISTS public."garment" (
     garment_id SERIAL PRIMARY KEY,
-    user_id INT,
-    FOREIGN KEY (user_id) REFERENCES public."user"(user_id),
+    profile_id INT,
+    FOREIGN KEY (profile_id) REFERENCES public."profile"(profile_id),
     garment_type_id INT,
     FOREIGN KEY (garment_type_id) REFERENCES public."garment_type"(garment_type_id),
     photo VARCHAR(255),
@@ -78,8 +78,8 @@ CREATE TABLE IF NOT EXISTS public."outfit_type" (
 
 CREATE TABLE IF NOT EXISTS public."outfits" (
     outfit_id SERIAL PRIMARY KEY,
-    user_id INT,
-    FOREIGN KEY (user_id) REFERENCES public."user"(user_id),
+    profile_id INT,
+    FOREIGN KEY (profile_id) REFERENCES public."profile"(profile_id),
     name VARCHAR(255),
     outfit_type_id INT,
     FOREIGN KEY (outfit_type_id) REFERENCES public."outfit_type"(outfit_type_id),
@@ -102,17 +102,17 @@ CREATE TABLE IF NOT EXISTS public."garments_outfits" (
 
 CREATE TABLE IF NOT EXISTS public."followers" (
     follower_id INT,
-    FOREIGN KEY (follower_id) REFERENCES public."user"(user_id),
+    FOREIGN KEY (follower_id) REFERENCES public."profile"(profile_id),
     following_id INT,
-    FOREIGN KEY (following_id) REFERENCES public."user"(user_id),
+    FOREIGN KEY (following_id) REFERENCES public."profile"(profile_id),
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS public."ratings" (
     outfit_id INT,
     FOREIGN KEY (outfit_id) REFERENCES public."outfits"(outfit_id),
-    user_id INT,
-    FOREIGN KEY (user_id) REFERENCES public."user"(user_id),
+    profile_id INT,
+    FOREIGN KEY (profile_id) REFERENCES public."profile"(profile_id),
     rating INT,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -121,8 +121,8 @@ CREATE TABLE IF NOT EXISTS public."comments" (
     comment_id SERIAL PRIMARY KEY,
     outfit_id INT,
     FOREIGN KEY (outfit_id) REFERENCES public."outfits"(outfit_id),
-    user_id INT,
-    FOREIGN KEY (user_id) REFERENCES public."user"(user_id),
+    profile_id INT,
+    FOREIGN KEY (profile_id) REFERENCES public."profile"(profile_id),
     comment TEXT,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

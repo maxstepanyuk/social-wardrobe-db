@@ -4,13 +4,13 @@
 -- \c postgres; 
 
 -- DROP DATABASE IF EXISTS wardrobe;
-CREATE DATABASE wardrobe;
+-- CREATE DATABASE wardrobe;
 
--- list all DBs
-SELECT datname FROM pg_database; 
+-- -- list all DBs
+-- SELECT datname FROM pg_database; 
 
 -- -- connect / use this DB
-\c wardrobe; 
+-- \c wardrobe; 
 
 -- user profile gender
 CREATE TABLE IF NOT EXISTS "user" (

@@ -13,12 +13,21 @@
 -- \c wardrobe; 
 
 -- user profile gender
-CREATE TABLE IF NOT EXISTS public."user" (
-    user_id SERIAL PRIMARY KEY,
-    username VARCHAR(255) UNIQUE NOT NULL,
+
+-- mock table of auth.users like in SUPABASE for testing
+CREATE SCHEMA IF NOT EXISTS auth;
+CREATE TABLE IF NOT EXISTS auth."users" (
+    id UUID UNIQUE PRIMARY KEY DEFAULT gen_random_uuid(),
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255),
     registration_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS public."user" (
+    user_id SERIAL PRIMARY KEY,
+    supabaseauth_user_id UUID UNIQUE REFERENCES auth."users"(id), -- local psql
+    -- auth_user_id UUID UNIQUE REFERENCES auth."users".id NOT NULL DEFAULT auth.uid(), -- supabase. ??	
+    username VARCHAR(255) UNIQUE NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS public."gender" (

@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS public."profile" (
     contact VARCHAR(255),
     address VARCHAR(255),
     gender_id INT,
-    FOREIGN KEY (gender_id) REFERENCES public.gender(gender_id),
+    FOREIGN KEY (gender_id) REFERENCES public."gender"(gender_id),
     biography TEXT,
     avatar VARCHAR(255)
 );
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS public."garment" (
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES public."user"(user_id),
     garment_type_id INT,
-    FOREIGN KEY (garment_type_id) REFERENCES public.garment_type(garment_type_id),
+    FOREIGN KEY (garment_type_id) REFERENCES public."garment_type"(garment_type_id),
     photo VARCHAR(255),
     date_worn DATE,
     date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS public."outfits" (
     FOREIGN KEY (user_id) REFERENCES public."user"(user_id),
     name VARCHAR(255),
     outfit_type_id INT,
-    FOREIGN KEY (outfit_type_id) REFERENCES public.outfit_type(outfit_type_id),
+    FOREIGN KEY (outfit_type_id) REFERENCES public."outfit_type"(outfit_type_id),
     date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     date_edited TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     date_worn DATE,
@@ -84,9 +84,9 @@ CREATE TABLE IF NOT EXISTS public."outfits" (
 
 CREATE TABLE IF NOT EXISTS public."garments_outfits" (
     garment_id INT,
-    FOREIGN KEY (garment_id) REFERENCES public.garment(garment_id),
+    FOREIGN KEY (garment_id) REFERENCES public."garment"(garment_id),
     outfit_id INT,
-    FOREIGN KEY (outfit_id) REFERENCES public.outfits(outfit_id)
+    FOREIGN KEY (outfit_id) REFERENCES public."outfits"(outfit_id)
 );
 
 -- followers ratings comments
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS public."followers" (
 
 CREATE TABLE IF NOT EXISTS public."ratings" (
     outfit_id INT,
-    FOREIGN KEY (outfit_id) REFERENCES public.outfits(outfit_id),
+    FOREIGN KEY (outfit_id) REFERENCES public."outfits"(outfit_id),
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES public."user"(user_id),
     rating INT,
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS public."ratings" (
 CREATE TABLE IF NOT EXISTS public."comments" (
     comment_id SERIAL PRIMARY KEY,
     outfit_id INT,
-    FOREIGN KEY (outfit_id) REFERENCES public.outfits(outfit_id),
+    FOREIGN KEY (outfit_id) REFERENCES public."outfits"(outfit_id),
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES public."user"(user_id),
     comment TEXT,

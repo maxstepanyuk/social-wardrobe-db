@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS auth."users" (
 CREATE TABLE IF NOT EXISTS public."user" (
     user_id SERIAL PRIMARY KEY,
     supabaseauth_user_id UUID UNIQUE REFERENCES auth."users"(id), -- local psql
-    -- auth_user_id UUID UNIQUE REFERENCES auth."users".id NOT NULL DEFAULT auth.uid(), -- supabase. ??	
+    -- auth_user_id UUID UNIQUE REFERENCES auth."users" NOT NULL DEFAULT auth.uid(), -- for supabase
     username VARCHAR(255) UNIQUE NOT NULL
 );
 

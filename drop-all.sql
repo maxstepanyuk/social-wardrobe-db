@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS auth."users"; -- local psql 
+DROP TABLE IF EXISTS public."action_log";
 
 DROP TABLE IF EXISTS public."comments";
 DROP TABLE IF EXISTS public."ratings";
@@ -12,4 +12,4 @@ DROP TABLE IF EXISTS public."profile";
 DROP TABLE IF EXISTS public."gender";
 DROP TABLE IF EXISTS public."user";
 
-DROP TABLE IF EXISTS public."action_log";
+DROP TABLE IF EXISTS auth."users"; -- local psql 

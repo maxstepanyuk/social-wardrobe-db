@@ -5,14 +5,14 @@
 
 -- data
 
-INSERT INTO auth."users" (id, email, password) VALUES
+INSERT INTO auth."users" (id, email, encrypted_password) VALUES
 ('c068fec8-70f7-4d3e-88eb-395c5aed4e44','user1@example.com', 'password1'),
 ('7b75bd54-0e55-43e1-a2d9-20024c80fd9a','user2@example.com', 'password2'),
 ('692a512a-7736-4651-a1ae-3cc8eba08ffa','user3@example.com', 'password3'),
 ('d31c712f-88d7-4723-97b3-0526f8de39ea','user4@example.com', 'password4'),
 ('9f41b163-8264-4adc-8ad0-9d4cc8d0282b','user5@example.com', 'password5');
 
-INSERT INTO auth."users" (id, email, password, registration_date) VALUES 
+INSERT INTO auth."users" (id, email, encrypted_password, created_at) VALUES 
 ('15e23f5a-bebe-4764-9e7b-d8f2c38ce8bf','john@example.com', 'password1', '2024-01-01 08:00:00'),
 ('25e23f5a-bebe-4764-9e7b-d8f2c38ce8b1','jane@example.com', 'password2', '2024-01-02 09:00:00'),
 ('35e23f5a-bebe-4764-9e7b-d8f2c38ce8b2','alex@example.com', 'password3', '2024-01-03 10:00:00'),

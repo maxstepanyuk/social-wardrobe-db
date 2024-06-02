@@ -19,14 +19,14 @@ CREATE SCHEMA IF NOT EXISTS auth;
 CREATE TABLE IF NOT EXISTS auth."users" (
     id UUID UNIQUE PRIMARY KEY DEFAULT gen_random_uuid(),
     email VARCHAR(255) UNIQUE NOT NULL,
-    password VARCHAR(255),
-    registration_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    encrypted_password VARCHAR(255),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS public."user" (
     user_id SERIAL PRIMARY KEY,
     supabaseauth_user_id UUID UNIQUE REFERENCES auth."users"(id), -- local psql
-    -- auth_user_id UUID UNIQUE REFERENCES auth."users" NOT NULL DEFAULT auth.uid(), -- for supabase
+    -- supabaseauth_user_id UUID UNIQUE REFERENCES auth."users" NOT NULL DEFAULT auth.uid(), -- for supabase
     username VARCHAR(255) UNIQUE NOT NULL
 );
 

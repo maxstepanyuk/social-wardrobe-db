@@ -118,6 +118,33 @@ SELECT * FROM auth.uid();
 
 
 
+CREATE OR REPLACE FUNCTION get_user_id_from_profile_id(desired_profile_id INT)
+RETURNS UUID AS $$
+DECLARE
+    user_id UUID;
+BEGIN
+    SELECT u.id INTO user_id
+    FROM auth."users" u
+    JOIN public."profile" p ON u.id = p.supabaseauth_user_id
+    WHERE p.profile_id = desired_profile_id;
+
+    RETURN user_id;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION get_profile_id_from_user_id(desired_user_id UUID)
+RETURNS INT AS $$
+DECLARE
+    profile_id INT;
+BEGIN
+    SELECT p.profile_id INTO profile_id
+    FROM auth."users" u
+    JOIN public."profile" p ON u.id = p.supabaseauth_user_id
+    WHERE u.id = desired_user_id;
+
+    RETURN profile_id;
+END;
+$$ LANGUAGE plpgsql;
 
 
 

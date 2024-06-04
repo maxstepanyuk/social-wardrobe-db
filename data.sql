@@ -5,14 +5,12 @@
 
 -- data
 
-INSERT INTO auth."users" (id, email, encrypted_password) VALUES
-('c068fec8-70f7-4d3e-88eb-395c5aed4e44','user1@example.com', 'password1'),
-('7b75bd54-0e55-43e1-a2d9-20024c80fd9a','user2@example.com', 'password2'),
-('692a512a-7736-4651-a1ae-3cc8eba08ffa','user3@example.com', 'password3'),
-('d31c712f-88d7-4723-97b3-0526f8de39ea','user4@example.com', 'password4'),
-('9f41b163-8264-4adc-8ad0-9d4cc8d0282b','user5@example.com', 'password5');
-
 INSERT INTO auth."users" (id, email, encrypted_password, created_at) VALUES 
+('c068fec8-70f7-4d3e-88eb-395c5aed4e44','user1@example.com', 'password1', '2024-06-04 00:00:00'),
+('7b75bd54-0e55-43e1-a2d9-20024c80fd9a','user2@example.com', 'password2', '2024-06-04 00:00:00'),
+('692a512a-7736-4651-a1ae-3cc8eba08ffa','user3@example.com', 'password3', '2024-06-04 00:00:00'),
+('d31c712f-88d7-4723-97b3-0526f8de39ea','user4@example.com', 'password4', '2024-06-04 00:00:00'),
+('9f41b163-8264-4adc-8ad0-9d4cc8d0282b','user5@example.com', 'password5', '2024-06-04 00:00:00'),
 ('15e23f5a-bebe-4764-9e7b-d8f2c38ce8bf','john@example.com', 'password1', '2024-01-01 08:00:00'),
 ('25e23f5a-bebe-4764-9e7b-d8f2c38ce8b1','jane@example.com', 'password2', '2024-01-02 09:00:00'),
 ('35e23f5a-bebe-4764-9e7b-d8f2c38ce8b2','alex@example.com', 'password3', '2024-01-03 10:00:00'),
@@ -37,38 +35,6 @@ INSERT INTO auth."users" (id, email, encrypted_password, created_at) VALUES
 SELECT * FROM auth."users";
 
 
-INSERT INTO public."user" (supabaseauth_user_id, username) VALUES
-('c068fec8-70f7-4d3e-88eb-395c5aed4e44','user1'),
-('7b75bd54-0e55-43e1-a2d9-20024c80fd9a','user2'),
-('692a512a-7736-4651-a1ae-3cc8eba08ffa','user3'),
-('d31c712f-88d7-4723-97b3-0526f8de39ea','user4'),
-('9f41b163-8264-4adc-8ad0-9d4cc8d0282b','user5');
-
-INSERT INTO "user" (supabaseauth_user_id, username) VALUES 
-('15e23f5a-bebe-4764-9e7b-d8f2c38ce8bf','john_doe'),
-('25e23f5a-bebe-4764-9e7b-d8f2c38ce8b1','jane_smith'),
-('35e23f5a-bebe-4764-9e7b-d8f2c38ce8b2','alex_jones'),
-('faf6f7f9-d337-4680-9e9f-91a4e225586c','emily_wilson'),
-('04c92d1c-bbfa-48d4-a18f-9b6bb8af4f37','michael_clark'),
-('d276adce-71e6-4aff-8476-e539704e4fb1','sarah_brown'),
-('afb7055b-184b-41d7-88ae-ac7367cfb6cf','david_thomas'),
-('c20cf0e4-8132-4384-88fc-1c1a3c2eb6c1','laura_martin'),
-('9ab47964-4b0a-4b17-87dd-965aa38ed718','chris_hill'),
-('e3cff5c4-caa2-4fc0-9d56-87131d551751','jessica_scott'),
-('d1338087-d0a3-47e4-9b89-99bf29e4212b','matt_wright'),
-('942300f3-bbe4-489a-bf1c-72068ef15d2c','olivia_green'),
-('6580061d-3c76-446e-9440-b47a472c1d90','ryan_evans'),
-('aade44df-1833-41f9-a038-c94b3bb94caa','hannah_king'),
-('0941585d-8e20-4612-a26f-b68755034baf','tom_hall'),
-('1e959812-61bc-4ec0-bacb-a3863f8f9347','lucy_adams'),
-('13223fea-de83-4f3e-aa26-02e5b30bdafc','peter_wilson'),
-('7445eaee-d1fb-49a2-96d0-ed10bcd59fc8','rachel_baker'),
-('d5a22087-8663-4798-a3da-812bbb324d84','jack_carter'),
-('220847b2-ea52-4dfa-828e-c644409c8e36','amy_morris');
-
-SELECT * FROM public."user";
-
-
 INSERT INTO public."gender" (name) VALUES
 ('Male'),
 ('Female'),
@@ -76,35 +42,32 @@ INSERT INTO public."gender" (name) VALUES
 
 SELECT * FROM public."gender";
 
-
-INSERT INTO public."profile" (user_id, birthdate, contact, address, gender_id, biography, avatar) VALUES
-(1, '1990-01-01', '+123456789', 'Address 1', 1, 'Bio for user 1', 'avatar1.jpg'),
-(2, '1991-02-02', '+987654321', 'Address 2', 2, 'Bio for user 2', 'avatar2.jpg'),
-(3, '1992-03-03', '+111222333', 'Address 3', 1, 'Bio for user 3', 'avatar3.jpg'),
-(4, '1993-04-04', '+444555666', 'Address 4', 2, 'Bio for user 4', 'avatar4.jpg'),
-(5, '1994-05-05', '+777888999', 'Address 5', 1, 'Bio for user 5', 'avatar5.jpg');
-
-INSERT INTO public."profile" (user_id, birthdate, contact, address, gender_id, biography, avatar) VALUES
-(6, '1995-06-06', '+111111111', 'Address 6', 1, 'Bio for user 6', 'avatar6.jpg'),
-(7, '1996-07-07', '+222222222', 'Address 7', 2, 'Bio for user 7', 'avatar7.jpg'),
-(8, '1997-08-08', '+333333333', 'Address 8', 1, 'Bio for user 8', 'avatar8.jpg'),
-(9, '1998-09-09', '+444444444', 'Address 9', 2, 'Bio for user 9', 'avatar9.jpg'),
-(10, '1999-10-10', '+555555555', 'Address 10', 1, 'Bio for user 10', 'avatar10.jpg'),
-(11, '2000-11-11', '+666666666', 'Address 11', 1, 'Bio for user 11', 'avatar11.jpg'),
-(12, '2001-12-12', '+777777777', 'Address 12', 2, 'Bio for user 12', 'avatar12.jpg'),
-(13, '2002-01-01', '+888888888', 'Address 13', 1, 'Bio for user 13', 'avatar13.jpg'),
-(14, '2003-02-02', '+999999999', 'Address 14', 2, 'Bio for user 14', 'avatar14.jpg'),
-(15, '2004-03-03', '+1010101010', 'Address 15', 1, 'Bio for user 15', 'avatar15.jpg'),
-(16, '2005-04-04', '+1111111111', 'Address 16', 2, 'Bio for user 16', 'avatar16.jpg'),
-(17, '2006-05-05', '+1212121212', 'Address 17', 1, 'Bio for user 17', 'avatar17.jpg'),
-(18, '2007-06-06', '+1313131313', 'Address 18', 2, 'Bio for user 18', 'avatar18.jpg'),
-(19, '2008-07-07', '+1414141414', 'Address 19', 1, 'Bio for user 19', 'avatar19.jpg'),
-(20, '2009-08-08', '+1515151515', 'Address 20', 2, 'Bio for user 20', 'avatar20.jpg'),
-(21, '2010-09-09', '+1616161616', 'Address 21', 1, 'Bio for user 21', 'avatar21.jpg'),
-(22, '2011-10-10', '+1717171717', 'Address 22', 2, 'Bio for user 22', 'avatar22.jpg'),
-(23, '2012-11-11', '+1818181818', 'Address 23', 1, 'Bio for user 23', 'avatar23.jpg'),
-(24, '2013-12-12', '+1919191919', 'Address 24', 2, 'Bio for user 24', 'avatar24.jpg'),
-(25, '2014-01-01', '+2020202020', 'Address 25', 1, 'Bio for user 25', 'avatar25.jpg');
+INSERT INTO public."profile" (supabaseauth_user_id, username, birthdate, contact, address, gender_id, biography, avatar) VALUES
+('c068fec8-70f7-4d3e-88eb-395c5aed4e44','user1', '1990-01-01', '+123456789', 'Address 1', 1, 'Bio for user 1', 'avatar1.jpg'),
+('7b75bd54-0e55-43e1-a2d9-20024c80fd9a','user2', '1991-02-02', '+987654321', 'Address 2', 2, 'Bio for user 2', 'avatar2.jpg'),
+('692a512a-7736-4651-a1ae-3cc8eba08ffa','user3', '1992-03-03', '+111222333', 'Address 3', 1, 'Bio for user 3', 'avatar3.jpg'),
+('d31c712f-88d7-4723-97b3-0526f8de39ea','user4', '1993-04-04', '+444555666', 'Address 4', 2, 'Bio for user 4', 'avatar4.jpg'),
+('9f41b163-8264-4adc-8ad0-9d4cc8d0282b','user5', '1994-05-05', '+77788899923', 'Address 5', 1, 'Bio for user 5', 'avatar5.jpg'),
+('15e23f5a-bebe-4764-9e7b-d8f2c38ce8bf','user6', '1994-05-05', '+7778889995', 'Address 5', 1, 'Bio for user 6', 'avatar6.jpg'),
+('25e23f5a-bebe-4764-9e7b-d8f2c38ce8b1','user7', '1994-05-05', '+777888995679', 'Address 5', 1, 'Bio for user 7', 'avatar7.jpg'),
+('35e23f5a-bebe-4764-9e7b-d8f2c38ce8b2','alex_jones', '1997-08-08', '+333333333', 'Address 8', 1, 'Bio for user 8', 'avatar8.jpg'),
+('faf6f7f9-d337-4680-9e9f-91a4e225586c','emily_wilson', '1998-09-09', '+444444444', 'Address 9', 2, 'Bio for user 9', 'avatar9.jpg'),
+('04c92d1c-bbfa-48d4-a18f-9b6bb8af4f37','michael_clark', '1999-10-10', '+555555555', 'Address 10', 1, 'Bio for user 10', 'avatar10.jpg'),
+('d276adce-71e6-4aff-8476-e539704e4fb1','sarah_brown', '2000-11-11', '+666666666', 'Address 11', 1, 'Bio for user 11', 'avatar11.jpg'),
+('afb7055b-184b-41d7-88ae-ac7367cfb6cf','david_thomas', '2001-12-12', '+777777777', 'Address 12', 2, 'Bio for user 12', 'avatar12.jpg'),
+('c20cf0e4-8132-4384-88fc-1c1a3c2eb6c1','laura_martin', '2002-01-01', '+888888888', 'Address 13', 1, 'Bio for user 13', 'avatar13.jpg'),
+('9ab47964-4b0a-4b17-87dd-965aa38ed718','chris_hill', '2003-02-02', '+999999999', 'Address 14', 2, 'Bio for user 14', 'avatar14.jpg'),
+('e3cff5c4-caa2-4fc0-9d56-87131d551751','jessica_scott', '2004-03-03', '+1010101010', 'Address 15', 1, 'Bio for user 15', 'avatar15.jpg'),
+('d1338087-d0a3-47e4-9b89-99bf29e4212b','matt_wright', '2005-04-04', '+1111111111', 'Address 16', 2, 'Bio for user 16', 'avatar16.jpg'),
+('942300f3-bbe4-489a-bf1c-72068ef15d2c','olivia_green', '2006-05-05', '+1212121212', 'Address 17', 1, 'Bio for user 17', 'avatar17.jpg'),
+('6580061d-3c76-446e-9440-b47a472c1d90','ryan_evans', '2007-06-06', '+1313131313', 'Address 18', 2, 'Bio for user 18', 'avatar18.jpg'),
+('aade44df-1833-41f9-a038-c94b3bb94caa','hannah_king', '2008-07-07', '+1414141414', 'Address 19', 1, 'Bio for user 19', 'avatar19.jpg'),
+('0941585d-8e20-4612-a26f-b68755034baf','tom_hall', '2009-08-08', '+1515151515', 'Address 20', 2, 'Bio for user 20', 'avatar20.jpg'),
+('1e959812-61bc-4ec0-bacb-a3863f8f9347','lucy_adams', '2010-09-09', '+1616161616', 'Address 21', 1, 'Bio for user 21', 'avatar21.jpg'),
+('13223fea-de83-4f3e-aa26-02e5b30bdafc','peter_wilson', '2011-10-10', '+1717171717', 'Address 22', 2, 'Bio for user 22', 'avatar22.jpg'),
+('7445eaee-d1fb-49a2-96d0-ed10bcd59fc8','rachel_baker', '2012-11-11', '+1818181818', 'Address 23', 1, 'Bio for user 23', 'avatar23.jpg'),
+('d5a22087-8663-4798-a3da-812bbb324d84','jack_carter', '2013-12-12', '+1919191919', 'Address 24', 2, 'Bio for user 24', 'avatar24.jpg'),
+('220847b2-ea52-4dfa-828e-c644409c8e36','amy_morris', '2014-01-01', '+2020202020', 'Address 25', 1, 'Bio for user 25', 'avatar25.jpg');
 
 select * from public."profile";
 
@@ -113,9 +76,7 @@ INSERT INTO public."garment_type" (name) VALUES
 ('Pants'),
 ('Dress'),
 ('Skirt'),
-('Jacket');
-
-INSERT INTO public."garment_type" (name) VALUES
+('Jacket'),
 ('T-Shirt'),
 ('Blouse'),
 ('Shorts'),
@@ -143,9 +104,7 @@ INSERT INTO public."garment" (profile_id, garment_type_id, photo, date_worn) VAL
 (2, 2, 'pants1.jpg', '2024-01-02'),
 (3, 3, 'dress1.jpg', '2024-01-03'),
 (4, 4, 'skirt1.jpg', '2024-01-04'),
-(5, 5, 'jacket1.jpg', '2024-01-05');
-
-INSERT INTO garment (profile_id, garment_type_id, photo, date_worn) VALUES
+(5, 5, 'jacket1.jpg', '2024-01-05'),
 (6, 6, 'shirt2.jpg', '2024-01-06'),
 (7, 7, 'pants2.jpg', '2024-01-07'),
 (8, 8, 'dress2.jpg', '2024-01-08'),
@@ -169,15 +128,15 @@ INSERT INTO garment (profile_id, garment_type_id, photo, date_worn) VALUES
 
 select * from public."garment";
 
+SELECT * FROM profile p ;
+
 
 INSERT INTO public."outfit_type" (name) VALUES
 ('Casual'),
 ('Formal'),
 ('Sportswear'),
 ('Business'),
-('Party');
-
-INSERT INTO public."outfit_type" (name) VALUES
+('Party'),
 ('Beachwear'),
 ('Athleisure'),
 ('Smart Casual'),
@@ -207,9 +166,7 @@ INSERT INTO public."outfits" (profile_id, name, outfit_type_id, date_worn, cover
 (2, 'Outfit 2', 2, '2024-01-02', 'outfit2.jpg'),
 (3, 'Outfit 3', 3, '2024-01-03', 'outfit3.jpg'),
 (4, 'Outfit 4', 4, '2024-01-04', 'outfit4.jpg'),
-(5, 'Outfit 5', 5, '2024-01-05', 'outfit5.jpg');
-
-INSERT INTO public."outfits" (profile_id, name, outfit_type_id, date_worn, cover_photo) VALUES
+(5, 'Outfit 5', 5, '2024-01-05', 'outfit5.jpg'),
 (6, 'Outfit 6', 6, '2024-01-06', 'outfit6.jpg'),
 (7, 'Outfit 7', 7, '2024-01-07', 'outfit7.jpg'),
 (8, 'Outfit 8', 8, '2024-01-08', 'outfit8.jpg'),
@@ -307,9 +264,7 @@ INSERT INTO public."followers" (follower_id, following_id) VALUES
 (3, 4),
 (4, 5),
 (5, 1),
-(1, 5);
-
-INSERT INTO public."followers" (follower_id, following_id) VALUES
+(1, 5),
 (6, 7),
 (7, 8),
 (8, 9),
@@ -339,9 +294,7 @@ INSERT INTO public."ratings" (outfit_id, profile_id, rating) VALUES
 (2, 3, 5),
 (3, 4, 3),
 (4, 5, 4),
-(5, 1, 5);
-
-INSERT INTO public."ratings" (outfit_id, profile_id, rating) VALUES
+(5, 1, 5),
 (6, 7, 4),
 (7, 8, 3),
 (8, 9, 5),
@@ -361,9 +314,7 @@ INSERT INTO public."ratings" (outfit_id, profile_id, rating) VALUES
 (22, 23, 4),
 (23, 24, 3),
 (24, 25, 5),
-(25, 1, 4);
-
-INSERT INTO public."ratings" (outfit_id, profile_id, rating) VALUES
+(25, 1, 4),
 (1, 2, 4),
 (1, 3, 5),
 (1, 4, 3),
@@ -378,9 +329,7 @@ INSERT INTO public."comments" (outfit_id, profile_id, comment) VALUES
 (2, 4, 'Love it!'),
 (3, 5, 'Great style!'),
 (4, 1, 'I woulnd thought of this combo!'),
-(5, 2, 'Ok');
-
-INSERT INTO public."comments" (outfit_id, profile_id, comment) VALUES
+(5, 2, 'Ok'),
 (6, 7, 'Looking great!'),
 (7, 8, 'Fantastic choice!'),
 (8, 9, 'Stylish outfit!'),
@@ -400,10 +349,7 @@ INSERT INTO public."comments" (outfit_id, profile_id, comment) VALUES
 (22, 23, 'Great choice of shoes!'),
 (23, 24, 'Beautiful outfit!'),
 (24, 25, 'Love the patterns!'),
-(25, 1, 'Impressive!');
-
-
-INSERT INTO public."comments" (outfit_id, profile_id, comment) VALUES
+(25, 1, 'Impressive!'),
 (1, 3, 'Nice outfit!'),
 (2, 4, 'Love it!'),
 (1, 5, 'Great style!'),

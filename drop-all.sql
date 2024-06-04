@@ -10,6 +10,5 @@ DROP TABLE IF EXISTS public."garment";
 DROP TABLE IF EXISTS public."garment_type";
 DROP TABLE IF EXISTS public."profile";
 DROP TABLE IF EXISTS public."gender";
-DROP TABLE IF EXISTS public."user";
 
 DROP TABLE IF EXISTS auth."users"; -- local psql 

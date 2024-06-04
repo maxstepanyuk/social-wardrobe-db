@@ -16,18 +16,12 @@
 
 -- mock table of auth.users like in SUPABASE for testing
 CREATE SCHEMA IF NOT EXISTS auth;
+
 CREATE TABLE IF NOT EXISTS auth."users" (
     id UUID UNIQUE PRIMARY KEY DEFAULT gen_random_uuid(),
     email VARCHAR(255) UNIQUE NOT NULL,
     encrypted_password VARCHAR(255),
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE IF NOT EXISTS public."user" (
-    user_id SERIAL PRIMARY KEY,
-    supabaseauth_user_id UUID UNIQUE REFERENCES auth."users"(id), -- local psql
-    -- supabaseauth_user_id UUID UNIQUE REFERENCES auth."users" NOT NULL DEFAULT auth.uid(), -- for supabase
-    username VARCHAR(255) UNIQUE NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS public."gender" (
@@ -37,7 +31,9 @@ CREATE TABLE IF NOT EXISTS public."gender" (
 
 CREATE TABLE IF NOT EXISTS public."profile" (
     profile_id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES public."user"(user_id),
+    supabaseauth_user_id UUID UNIQUE REFERENCES auth."users"(id),  -- local psql
+    -- supabaseauth_user_id UUID UNIQUE REFERENCES auth."users" NOT NULL DEFAULT auth.uid(), -- for supabase
+    username VARCHAR(255) UNIQUE NOT NULL,
     birthdate DATE,
     contact VARCHAR(255),
     address VARCHAR(255),
@@ -127,7 +123,6 @@ CREATE TABLE public."action_log" (
 
 -- REPLICA IDENTITY
 
-ALTER TABLE public."user" REPLICA IDENTITY FULL;
 ALTER TABLE public."profile" REPLICA IDENTITY FULL;
 ALTER TABLE public."garment" REPLICA IDENTITY FULL;
 ALTER TABLE public."outfits" REPLICA IDENTITY FULL;

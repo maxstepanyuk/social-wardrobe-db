@@ -132,6 +132,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+SELECT * FROM get_user_id_from_profile_id(1);
+
+
 CREATE OR REPLACE FUNCTION get_profile_id_from_user_id(desired_user_id UUID)
 RETURNS INT AS $$
 DECLARE
@@ -145,6 +148,8 @@ BEGIN
     RETURN profile_id;
 END;
 $$ LANGUAGE plpgsql;
+
+SELECT * FROM get_profile_id_from_user_id('d276adce-71e6-4aff-8476-e539704e4fb1');
 
 
 

@@ -152,6 +152,20 @@ $$ LANGUAGE plpgsql;
 SELECT * FROM get_profile_id_from_user_id('d276adce-71e6-4aff-8476-e539704e4fb1');
 
 
+CREATE OR REPLACE FUNCTION get_garment_ids_by_profile(p_id INT)
+RETURNS TABLE (garment_id INT) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        public.garment.garment_id
+    FROM
+        public.garment
+    WHERE
+        public.garment.profile_id = p_id;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM get_garment_ids_by_profile(1);
 
 
 

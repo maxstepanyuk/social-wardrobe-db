@@ -19,6 +19,63 @@ ALTER TABLE public."ratings" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public."comments" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public."action_log" ENABLE ROW LEVEL SECURITY;
 
+-- Allow select for anon_user on all tables
+CREATE POLICY anon_select_profile ON public."profile"
+    FOR SELECT
+    TO public
+    USING (true);
+
+CREATE POLICY anon_select_garment ON public."garment"
+    FOR SELECT
+    TO public
+    USING (true);
+
+CREATE POLICY anon_select_outfits ON public."outfits"
+    FOR SELECT
+    TO public
+    USING (true);
+
+CREATE POLICY anon_select_comments ON public."comments"
+    FOR SELECT
+    TO public
+    USING (true);
+
+CREATE POLICY anon_select_followers ON public."followers"
+    FOR SELECT
+    TO public
+    USING (true);
+
+CREATE POLICY anon_select_ratings ON public."ratings"
+    FOR SELECT
+    TO public
+    USING (true);
+
+CREATE POLICY anon_select_garments_outfits ON public."garments_outfits"
+    FOR SELECT
+    TO public
+    USING (true);
+
+CREATE POLICY anon_select_garment_type ON public."garment_type"
+    FOR SELECT
+    TO public
+    USING (true);
+
+CREATE POLICY anon_select_outfit_type ON public."outfit_type"
+    FOR SELECT
+    TO public
+    USING (true);
+
+CREATE POLICY anon_select_action_log ON public."action_log"
+    FOR SELECT
+    TO supabase_admin
+    USING (true);
+
+CREATE POLICY anon_select_gender ON public."gender"
+    FOR SELECT
+    TO public
+    USING (true);
+
+
 -- DOTO:
 
 -- -- Allow anonymous users to view(SELECT) all data from  tables

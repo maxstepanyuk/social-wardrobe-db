@@ -168,6 +168,20 @@ $$ LANGUAGE plpgsql;
 SELECT * FROM get_garment_ids_by_profile(1);
 
 
+CREATE OR REPLACE FUNCTION get_outfit_ids_by_profile(o_id INT)
+RETURNS TABLE (outfit_id INT) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        public.outfits.outfit_id
+    FROM
+        public.outfits
+    WHERE
+        public.outfits.profile_id = o_id;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM get_outfit_ids_by_profile(1);
 
 
 

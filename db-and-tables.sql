@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS public."profile" (
     profile_id SERIAL PRIMARY KEY,
     supabaseauth_user_id UUID UNIQUE REFERENCES auth."users"(id),  -- local psql
     -- supabaseauth_user_id UUID UNIQUE REFERENCES auth."users" NOT NULL DEFAULT auth.uid(), -- for supabase
-    username VARCHAR(255) UNIQUE NOT NULL,
+    username TEXT UNIQUE,
     birthdate DATE,
     contact VARCHAR(255),
     address VARCHAR(255),

@@ -16,7 +16,7 @@ END;
 $user_delete$ LANGUAGE plpgsql;
 
 CREATE TRIGGER user_delete_trigger
-AFTER DELETE ON "user"
+AFTER DELETE ON public."profile"
 FOR EACH ROW
 EXECUTE FUNCTION user_delete_log();
 

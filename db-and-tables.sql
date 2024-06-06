@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS public."profile" (
     address VARCHAR(255),
     gender_id INT REFERENCES public."gender"(gender_id),
     biography TEXT,
-    avatar VARCHAR(255)
+    avatar TEXT
 );
 
 -- garments and types
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS public."garment" (
     garment_id SERIAL PRIMARY KEY,
     profile_id INT REFERENCES public."profile"(profile_id),
     garment_type_id INT REFERENCES public."garment_type"(garment_type_id),
-    photo VARCHAR(255),
+    photo TEXT,
     date_worn DATE,
     date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS public."outfits" (
     date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     date_edited TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     date_worn DATE,
-    cover_photo VARCHAR(255)
+    cover_photo TEXT
 );
 
 -- garments (m-m) outfits

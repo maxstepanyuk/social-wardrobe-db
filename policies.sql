@@ -19,6 +19,8 @@ ALTER TABLE public."ratings" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public."comments" ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public."action_log" ENABLE ROW LEVEL SECURITY;
 
+-- TODO update from supabase
+
 -- Allow select for anon_user on all tables
 CREATE POLICY anon_select_profile ON public."profile"
     FOR SELECT
@@ -74,6 +76,7 @@ CREATE POLICY anon_select_gender ON public."gender"
     FOR SELECT
     TO public
     USING (true);
+
 
 
 -- DOTO:
